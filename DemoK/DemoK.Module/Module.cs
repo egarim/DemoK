@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+﻿using DemoK.Module.Controllers;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using DevExpress.ExpressApp.DC;
@@ -13,6 +13,7 @@ using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.BaseImpl.PermissionPolicy;
 using DevExpress.Xpo;
+using System.ComponentModel;
 
 namespace DemoK.Module
 {
@@ -40,7 +41,11 @@ namespace DemoK.Module
         public override void Setup(XafApplication application)
         {
             base.Setup(application);
-            // Manage various aspects of the application UI and behavior at the module level.
+            application.CreateCustomLogonWindowControllers += application_CreateCustomLogonWindowControllers;
+        }
+        private void application_CreateCustomLogonWindowControllers(object sender, CreateCustomLogonWindowControllersEventArgs e)
+        {
+            e.Controllers.Add(((XafApplication)sender).CreateController<LoginShowPasswordController>());
         }
         public override void CustomizeTypesInfo(ITypesInfo typesInfo)
         {
