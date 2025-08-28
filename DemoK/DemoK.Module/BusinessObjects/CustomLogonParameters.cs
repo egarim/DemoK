@@ -1,6 +1,7 @@
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Security;
 using DevExpress.ExpressApp.Security.Authentication;
+using DevExpress.Persistent.Base;
 using System.Text.Json.Serialization;
 
 namespace DemoK.Module.BusinessObjects
@@ -30,6 +31,7 @@ namespace DemoK.Module.BusinessObjects
 
         }
 
+        [ImmediatePostData()]
         public bool ShowPassword
         {
             get => showPassword;
