@@ -5,7 +5,21 @@ namespace DemoK.Module.BusinessObjects
 {
     public class CustomLogonParameters : AuthenticationStandardLogonParameters
     {
-    
-        public bool ShowPassword { get; set; }
+
+        bool showPassword;
+        public bool ShowPassword
+        {
+            get => showPassword;
+            set
+            {
+                if (showPassword == value)
+                {
+                    return;
+                }
+
+                showPassword = value;
+                RaisePropertyChanged(nameof(ShowPassword));
+            }
+        }
     }
 }
