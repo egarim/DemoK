@@ -45,7 +45,7 @@ namespace DemoK.Module
         }
         private void application_CreateCustomLogonWindowControllers(object sender, CreateCustomLogonWindowControllersEventArgs e)
         {
-           // e.Controllers.Add(((XafApplication)sender).CreateController<LoginShowPasswordController>());
+           e.Controllers.Add(((XafApplication)sender).CreateController<ShowPasswordViewController>());
         }
         public override void CustomizeTypesInfo(ITypesInfo typesInfo)
         {
