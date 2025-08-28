@@ -1,4 +1,34 @@
-﻿<Application Logo="ExpressAppLogo">
-    <Options UIType="TabbedMDI" FormStyle="Ribbon" />
-    <NavigationItems NavigationStyle="Accordion" DefaultChildItemsDisplayStyle="List"/>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Logo="ExpressAppLogo">
+  <NavigationItems NavigationStyle="Accordion" DefaultChildItemsDisplayStyle="List">
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="@40713744-4e79-4884-b074-dcba5d471699" Caption="Events Dashboard" ViewId="EventsDashboard" IsNewNode="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Options UIType="TabbedMDI" FormStyle="Ribbon" />
+  <SchemaModules>
+    <SchemaModule Name="SchedulerModuleBase" Version="25.1.4.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerWindowsFormsModule" Version="25.1.4.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="25.1.4.0" IsNewNode="True" />
+    <SchemaModule Name="SystemWindowsFormsModule" Version="25.1.4.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <DashboardView Id="EventsDashboard" Caption="EventsDashboard" IsNewNode="True">
+      <Items IsNewNode="True">
+        <DashboardViewItem Id="EventsCalendar" Caption="Events Calendar" ViewId="MyEvent_ListView" IsNewNode="True" />
+        <DashboardViewItem Id="MyEventsGrid" ViewId="MyEventsGrid" IsNewNode="True" />
+      </Items>
+      <Layout IsNewNode="True">
+        <LayoutGroup Id="Main" ShowCaption="False" TextAlignMode="AlignWithChildren" Index="0" RelativeSize="100" IsNewNode="True">
+          <LayoutItem Id="MyEventsGrid" ViewItem="MyEventsGrid" Index="0" RelativeSize="50" IsNewNode="True" />
+          <LayoutItem Id="EventsCalendar" ViewItem="EventsCalendar" Index="1" RelativeSize="50" IsNewNode="True" />
+        </LayoutGroup>
+      </Layout>
+    </DashboardView>
+    <ListView Id="MyEventsGrid" Caption="MyEventsGrid" ClassName="DemoK.Module.BusinessObjects.MyEvent" EditorTypeName="DevExpress.ExpressApp.Win.Editors.GridListEditor" IsNewNode="True" />
+  </Views>
 </Application>

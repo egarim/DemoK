@@ -40,6 +40,7 @@
     <PackageReference Include="DevExpress.Persistent.BaseImpl.Xpo" Version="25.1.*-*" />
     <PackageReference Include="DevExpress.RichEdit.Export" Version="25.1.*-*" />
     <PackageReference Include="DevExpress.Win.Design" Version="25.1.*-*" />
+    <PackageReference Include="DevExpress.ExpressApp.Scheduler.Win" Version="25.1.*-*" />
     
   </ItemGroup>
   <ItemGroup>

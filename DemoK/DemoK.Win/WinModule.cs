@@ -16,6 +16,7 @@ namespace DemoK.Win
     // For more typical usage scenarios, be sure to check out https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.ModuleBase.
     public sealed class DemoKWinModule : ModuleBase
     {
+        
         //void Application_CreateCustomModelDifferenceStore(object sender, CreateCustomModelDifferenceStoreEventArgs e) {
         //    e.Store = new ModelDifferenceDbStore((XafApplication)sender, typeof(ModelDifference), true, "Win");
         //    e.Handled = true;
@@ -28,6 +29,8 @@ namespace DemoK.Win
         public DemoKWinModule()
         {
             DevExpress.ExpressApp.Editors.FormattingProvider.UseMaskSettings = true;
+
+           this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Scheduler.Win.SchedulerWindowsFormsModule));
         }
         public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB)
         {
