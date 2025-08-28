@@ -18,6 +18,7 @@ namespace DemoK.Module.Controllers
         
         protected override void OnActivated()
         {
+            //https://docs.devexpress.com/eXpressAppFramework/118592/ui-construction/application-model-ui-settings-storage/customize-application-model-in-code/apply-application-model-changes-to-the-current-view-immediately
             base.OnActivated();
             // Subscribe to property change events
             if (View.CurrentObject is DemoK.Module.BusinessObjects.CustomLogonParameters customLogonParams)
