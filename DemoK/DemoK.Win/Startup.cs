@@ -9,6 +9,7 @@ using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.BaseImpl.PermissionPolicy;
 using DevExpress.XtraEditors;
+using DemoK.Module.BusinessObjects;
 
 namespace DemoK.Win
 {
@@ -58,7 +59,10 @@ namespace DemoK.Win
                         ((SecurityStrategy)securityStrategy).PermissionsReloadMode = PermissionsReloadMode.NoCache;
                     };
                 })
-                .AddPasswordAuthentication();
+                .AddPasswordAuthentication(options => {
+                    options.LogonParametersType = typeof(CustomLogonParameters);
+                });
+            
             builder.AddBuildStep(application =>
             {
                 application.ConnectionString = connectionString;
