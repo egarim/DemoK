@@ -86,6 +86,8 @@ namespace DemoK.Module.Controllers
 
                 // Find the user in the database
                 var user = FindUser(logonParameters.UserName);
+
+                user.ComparePassword(logonParameters.Password);
                 if (user == null)
                 {
                     Application.ShowViewStrategy.ShowMessage("User not found.", InformationType.Error);

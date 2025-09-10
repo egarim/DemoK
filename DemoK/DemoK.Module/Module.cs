@@ -38,15 +38,7 @@ namespace DemoK.Module
             ModuleUpdater updater = new DatabaseUpdate.Updater(objectSpace, versionFromDB);
             return new ModuleUpdater[] { updater };
         }
-        public override void Setup(XafApplication application)
-        {
-            base.Setup(application);
-            application.CreateCustomLogonWindowControllers += application_CreateCustomLogonWindowControllers;
-        }
-        private void application_CreateCustomLogonWindowControllers(object sender, CreateCustomLogonWindowControllersEventArgs e)
-        {
-           e.Controllers.Add(((XafApplication)sender).CreateController<ShowPasswordViewController>());
-        }
+ 
         public override void CustomizeTypesInfo(ITypesInfo typesInfo)
         {
             base.CustomizeTypesInfo(typesInfo);

@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+﻿using DemoK.Module.Controllers;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using DevExpress.ExpressApp.DC;
@@ -9,6 +9,7 @@ using DevExpress.ExpressApp.Model.DomainLogics;
 using DevExpress.ExpressApp.Model.NodeGenerators;
 using DevExpress.ExpressApp.Updating;
 using DevExpress.Persistent.BaseImpl;
+using System.ComponentModel;
 
 namespace DemoK.Win
 {
@@ -36,11 +37,17 @@ namespace DemoK.Win
         {
             return ModuleUpdater.EmptyModuleUpdaters;
         }
+      
+        private void application_CreateCustomLogonWindowControllers(object sender, CreateCustomLogonWindowControllersEventArgs e)
+        {
+            e.Controllers.Add(((XafApplication)sender).CreateController<ShowPasswordViewController>());
+        }
         public override void Setup(XafApplication application)
         {
             base.Setup(application);
             //application.CreateCustomModelDifferenceStore += Application_CreateCustomModelDifferenceStore;
             application.CreateCustomUserModelDifferenceStore += Application_CreateCustomUserModelDifferenceStore;
+            application.CreateCustomLogonWindowControllers += application_CreateCustomLogonWindowControllers;
         }
     }
 }
